@@ -51,6 +51,7 @@
       "identity": "Developer ID Application",
       "hardenedRuntime": true,
       "gatekeeperAssess": false,
+      "notarize": false,
       "entitlements": "entitlements.plist",
       "entitlementsInherit": "entitlements.plist",
       "fileAssociations": [
