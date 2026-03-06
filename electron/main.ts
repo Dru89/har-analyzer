@@ -74,11 +74,26 @@ function findWindowForFile(filePath: string): BrowserWindow | null {
 }
 
 function openFileInNewWindow(filePath: string) {
+  // If this file is already open, just focus that window
   const existing = findWindowForFile(filePath)
   if (existing) {
     existing.focus()
     return
   }
+
+  // If there's a window with no file loaded (welcome screen), reuse it
+  let emptyWindow: BrowserWindow | null = null
+  windows.forEach((win) => {
+    if (!windowFilePaths.has(win)) {
+      emptyWindow = win
+    }
+  })
+  if (emptyWindow) {
+    (emptyWindow as BrowserWindow).focus()
+    sendFileToWindow(emptyWindow, filePath)
+    return
+  }
+
   createWindow(filePath)
 }
 

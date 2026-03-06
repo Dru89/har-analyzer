@@ -1,6 +1,6 @@
 {
   "name": "har-explorer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A desktop app for viewing and exploring HAR files",
   "author": "Drew Hays",
   "license": "MIT",
